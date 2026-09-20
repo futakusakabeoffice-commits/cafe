@@ -8,56 +8,56 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/style.css">
-<style>
-.filter-btn{border-radius:999px;padding:12px 24px;font-size:14px;letter-spacing:.12em;font-family:inherit;cursor:pointer;transition:.3s;min-height:44px;background:transparent;color:#3A241B;border:1px solid #CDBFAE}
-.filter-btn.active{background:#4A2C21;color:#F5EFE6;border:1px solid #4A2C21}
-</style>
 </head>
 <body>
-<div id="top" style="min-height:100vh;background:#FCFAF6;padding-left:96px;padding-right:48px;box-sizing:border-box">
+<div id="top" class="subpage-shell has-right-gutter">
 
-<a href="index.html" aria-label="木漏れ日珈琲 トップへ" style="position:fixed;left:16px;top:24px;width:40px;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:16px;z-index:5">
+<a href="index.html" aria-label="木漏れ日珈琲 トップへ" class="vlogo-fixed">
 <span aria-hidden="true" style="writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-weight:600;font-size:20px;letter-spacing:.18em;color:#4A2C21">木漏れ日珈琲</span>
-<span aria-hidden="true" style="writing-mode:vertical-rl;font-size:12px;letter-spacing:.2em;color:#6B5B51">珈琲とお菓子の店</span>
+<span class="vlogo-sub" aria-hidden="true" style="writing-mode:vertical-rl;font-size:12px;letter-spacing:.2em;color:#6B5B51">珈琲とお菓子の店</span>
 </a>
 
-<header style="display:flex;align-items:flex-start;justify-content:space-between;gap:32px;padding:40px 0 0">
-<nav aria-label="パンくずリスト" style="order:2;display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.05em">
+<a href="access.html" class="mobile-pill">ご予約</a>
+<button type="button" class="mobile-menu-btn" data-drawer-open aria-haspopup="true" aria-expanded="false" aria-controls="site-drawer" aria-label="メニューを開く">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg>
+<span>MENU</span>
+</button>
+
+<nav aria-label="パンくずリスト" class="subpage-content" style="display:flex;justify-content:flex-end;align-items:center;gap:10px;font-size:14px;letter-spacing:.05em;padding-top:40px">
 <a href="index.html" style="text-decoration:none;color:#6B5B51">ホーム</a>
 <span aria-hidden="true" style="font-size:12px;color:#CDBFAE">〉</span>
 <span aria-current="page" style="font-weight:500;border-bottom:1px solid #3A241B">メニュー</span>
 </nav>
-</header>
 
-<div style="padding:72px 0 40px;max-width:1200px">
+<div class="subpage-content" style="padding-top:32px;padding-bottom:40px;max-width:1200px">
 <p style="margin:0;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.1em;color:#4A2C21">MENU</p>
-<h1 style="margin:8px 0 0;font-family:'Shippori Mincho',serif;font-size:36px;font-weight:400;letter-spacing:.12em;font-feature-settings:'palt'">メニュー</h1>
+<h1 style="margin:8px 0 0;font-family:'Shippori Mincho',serif;font-size:clamp(1.75rem,6vw,2.25rem);font-weight:400;letter-spacing:.12em;font-feature-settings:'palt'">メニュー</h1>
 <p style="margin:24px 0 0;max-width:32em;font-size:16px;line-height:1.9;letter-spacing:.05em;text-wrap:pretty">毎朝その日の気温と湿度に合わせて焙煎したコーヒーと、厨房で焼くスイーツをご用意しています。価格はすべて税込です。</p>
 </div>
 
-<div id="filters" style="display:flex;gap:12px;flex-wrap:wrap;padding-bottom:56px"></div>
+<div id="filters" class="filters-row subpage-content"></div>
 
-<div id="items" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:1200px;padding-bottom:96px"></div>
+<div id="items" class="grid-3col subpage-content" style="padding-bottom:96px;max-width:1200px"></div>
 
-<footer style="margin:0 -48px 0 -96px;background:#F4EEE5;padding:96px 48px 96px 96px;position:relative">
+<footer class="subpage-footer has-right-gutter">
 <a href="#top" style="position:absolute;right:24px;top:24px;writing-mode:vertical-rl;text-decoration:none;font-family:Jost,sans-serif;font-size:14px;letter-spacing:.12em;color:#3A241B">PAGETOP</a>
-<div style="display:flex;justify-content:space-between;gap:64px;flex-wrap:wrap;max-width:1200px">
-<div style="display:flex;flex-direction:column;gap:0">
+<div class="footer-b-row">
+<div class="footer-b-links">
 <nav style="display:flex;flex-direction:column;gap:20px">
 <a href="index.html" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.12em">Home</a>
 <a href="concept.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">こだわり</a>
-<a href="menu.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">メニュー</a>
+<a href="menu.html" aria-current="page" style="text-decoration:none;font-size:15px;letter-spacing:.15em">メニュー</a>
 <a href="news.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">お知らせ</a>
 <a href="access.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">店舗情報</a>
 </nav>
-<span aria-hidden="true" style="width:28px;height:1px;background:#CDBFAE;margin:16px 0"></span>
+<span aria-hidden="true" style="width:28px;height:1px;background:#CDBFAE;margin:16px 0;display:block"></span>
 <nav style="display:flex;flex-direction:column;gap:20px">
 <a href="https://instagram.com/komorebi_coffee" style="text-decoration:none;font-size:15px;letter-spacing:.15em">Instagram</a>
 <a href="/privacy-policy" style="text-decoration:none;font-size:15px;letter-spacing:.15em">プライバシーポリシー</a>
 </nav>
 <p style="margin:40px 0 0;font-family:Jost,sans-serif;font-size:12px;letter-spacing:.1em;color:#6B5B51">© KOMOREBI COFFEE</p>
 </div>
-<div style="display:flex;flex-direction:column;align-items:flex-end;gap:16px">
+<div class="footer-b-brand">
 <span aria-hidden="true" style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:28px;letter-spacing:.18em;color:#4A2C21;font-feature-settings:'palt'">木漏れ日珈琲</span>
 <p style="margin:0;font-size:14px;letter-spacing:.06em;color:#6B5B51">9:00〜18:00／水曜定休</p>
 </div>
@@ -65,6 +65,32 @@
 </footer>
 
 </div>
+
+<div class="drawer-overlay" data-drawer-overlay hidden></div>
+<aside id="site-drawer" class="drawer" data-drawer aria-label="サイトメニュー" aria-hidden="true">
+<div class="drawer-head">
+<a href="index.html" class="drawer-home">Home</a>
+<button type="button" class="drawer-close" data-drawer-close aria-label="メニューを閉じる">×</button>
+</div>
+<nav class="drawer-nav">
+<a href="index.html">Home</a>
+<a href="concept.html">こだわり</a>
+<a href="menu.html" aria-current="page">メニュー</a>
+<a href="news.html">お知らせ</a>
+<a href="access.html">店舗情報</a>
+</nav>
+<span class="drawer-rule" aria-hidden="true"></span>
+<nav class="drawer-nav">
+<a href="https://instagram.com/komorebi_coffee">Instagram</a>
+<a href="/privacy-policy">プライバシーポリシー</a>
+</nav>
+<div class="drawer-foot">
+<span class="vlogo-mark" aria-hidden="true">木漏れ日珈琲</span>
+<p>© KOMOREBI COFFEE</p>
+</div>
+</aside>
+
 <script src="js/menu.js"></script>
+<script src="js/nav.js"></script>
 </body>
 </html>

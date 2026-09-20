@@ -12,7 +12,7 @@
 <body>
 <div id="top">
 
-<section style="position:relative;height:70vh;min-height:520px;overflow:hidden">
+<section class="hero-c">
 <img src="images/gallery-02.jpg" alt="木漏れ日が差し込むテラス席" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block">
 <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(0,0,0,0.4)"></div>
 <a href="index.html" aria-label="木漏れ日珈琲 トップへ" style="position:absolute;left:24px;top:24px;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:14px">
@@ -24,13 +24,18 @@
 <span aria-hidden="true" style="font-size:12px">〉</span>
 <span aria-current="page" style="font-weight:500;border-bottom:1px solid #F5EFE6">店舗情報</span>
 </nav>
-<h1 style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);margin:0;text-align:center;font-family:'Shippori Mincho',serif;font-size:36px;font-weight:400;letter-spacing:.12em;color:#F5EFE6;font-feature-settings:'palt'">店舗情報・ご予約</h1>
+<h1 class="hero-c-title">店舗情報・ご予約</h1>
 </section>
 
-<section style="padding:0 48px 96px">
-<div style="max-width:1040px;margin:-96px auto 0;background:#F4EEE5;border-radius:16px;padding:48px;position:relative">
+<button type="button" class="mobile-menu-btn" data-drawer-open aria-haspopup="true" aria-expanded="false" aria-controls="site-drawer" aria-label="メニューを開く">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg>
+<span>MENU</span>
+</button>
+
+<section style="padding:0 24px clamp(56px,10vw,96px)">
+<div class="overlap-card" style="max-width:1040px;margin-left:auto;margin-right:auto;background:#F4EEE5;border-radius:16px;padding:24px;position:relative">
 <p style="margin:0 0 32px;font-size:16px;line-height:1.9;letter-spacing:.05em;max-width:32em;text-wrap:pretty">テラス席はペット同伴可。混み合う時間帯を避けてゆっくりお過ごしいただけるよう、2名様よりご予約を承っています。</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 48px">
+<div class="info-grid">
 <div style="display:flex;gap:24px;padding:16px 0;border-top:1px dashed #CDBFAE"><span style="width:96px;flex:none;font-size:14px;color:#6B5B51">営業時間</span><span style="font-size:16px">9:00〜18:00（L.O. 17:30）</span></div>
 <div style="display:flex;gap:24px;padding:16px 0;border-top:1px dashed #CDBFAE"><span style="width:96px;flex:none;font-size:14px;color:#6B5B51">定休日</span><span style="font-size:16px">毎週水曜日</span></div>
 <div style="display:flex;gap:24px;padding:16px 0;border-top:1px dashed #CDBFAE"><span style="width:96px;flex:none;font-size:14px;color:#6B5B51">住所</span><span style="font-size:16px">東京都〇〇区〇〇1-2-3</span></div>
@@ -48,35 +53,35 @@
 </div>
 </section>
 
-<section style="padding:0 48px 96px">
+<section style="padding:0 24px clamp(56px,10vw,96px)">
 <div style="max-width:1040px;margin:0 auto">
-<h2 style="margin:0 0 24px;font-family:'Shippori Mincho',serif;font-size:26px;font-weight:400;letter-spacing:.15em">アクセス</h2>
-<div style="height:420px;border:1px solid #CDBFAE;border-radius:16px;background:repeating-linear-gradient(135deg,#EADFD0 0 14px,#F4EEE5 14px 28px);display:flex;align-items:center;justify-content:center">
-<span style="font-family:Jost,sans-serif;font-size:12px;letter-spacing:.18em;color:#6B5B51;background:#FCFAF6;padding:8px 16px;border-radius:999px">Google Maps 埋め込み（公開時に差し替え）</span>
+<h2 style="margin:0 0 24px;font-family:'Shippori Mincho',serif;font-size:clamp(1.5rem,4vw,1.625rem);font-weight:400;letter-spacing:.15em">アクセス</h2>
+<div style="height:clamp(260px,50vw,420px);border:1px solid #CDBFAE;border-radius:16px;background:repeating-linear-gradient(135deg,#EADFD0 0 14px,#F4EEE5 14px 28px);display:flex;align-items:center;justify-content:center">
+<span style="font-family:Jost,sans-serif;font-size:12px;letter-spacing:.18em;color:#6B5B51;background:#FCFAF6;padding:8px 16px;border-radius:999px;text-align:center">Google Maps 埋め込み（公開時に差し替え）</span>
 </div>
 <p style="margin:24px 0 0;font-size:16px;line-height:1.9;letter-spacing:.05em;max-width:32em;text-wrap:pretty">〇〇線〇〇駅の東口を出て、商店街を直進。二つ目の角を左に曲がった先、グリーンの日よけが目印です。</p>
 </div>
 </section>
 
-<footer style="background:#F4EEE5;padding:96px 48px;position:relative">
+<footer class="subpage-footer" style="margin:0">
 <a href="#top" style="position:absolute;right:24px;top:24px;writing-mode:vertical-rl;text-decoration:none;font-family:Jost,sans-serif;font-size:14px;letter-spacing:.12em;color:#3A241B">PAGETOP</a>
-<div style="display:flex;justify-content:space-between;gap:64px;flex-wrap:wrap;max-width:1200px;margin:0 auto">
-<div style="display:flex;flex-direction:column">
+<div class="footer-b-row" style="margin:0 auto">
+<div class="footer-b-links">
 <nav style="display:flex;flex-direction:column;gap:20px">
 <a href="index.html" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.12em">Home</a>
 <a href="concept.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">こだわり</a>
 <a href="menu.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">メニュー</a>
 <a href="news.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">お知らせ</a>
-<a href="access.html" style="text-decoration:none;font-size:15px;letter-spacing:.15em">店舗情報</a>
+<a href="access.html" aria-current="page" style="text-decoration:none;font-size:15px;letter-spacing:.15em">店舗情報</a>
 </nav>
-<span aria-hidden="true" style="width:28px;height:1px;background:#CDBFAE;margin:16px 0"></span>
+<span aria-hidden="true" style="width:28px;height:1px;background:#CDBFAE;margin:16px 0;display:block"></span>
 <nav style="display:flex;flex-direction:column;gap:20px">
 <a href="https://instagram.com/komorebi_coffee" style="text-decoration:none;font-size:15px;letter-spacing:.15em">Instagram</a>
 <a href="/privacy-policy" style="text-decoration:none;font-size:15px;letter-spacing:.15em">プライバシーポリシー</a>
 </nav>
 <p style="margin:40px 0 0;font-family:Jost,sans-serif;font-size:12px;letter-spacing:.1em;color:#6B5B51">© KOMOREBI COFFEE</p>
 </div>
-<div style="display:flex;flex-direction:column;align-items:flex-end;gap:16px">
+<div class="footer-b-brand">
 <span aria-hidden="true" style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:28px;letter-spacing:.18em;color:#4A2C21;font-feature-settings:'palt'">木漏れ日珈琲</span>
 <p style="margin:0;font-size:14px;letter-spacing:.06em;color:#6B5B51">9:00〜18:00／水曜定休</p>
 </div>
@@ -84,5 +89,31 @@
 </footer>
 
 </div>
+
+<div class="drawer-overlay" data-drawer-overlay hidden></div>
+<aside id="site-drawer" class="drawer" data-drawer aria-label="サイトメニュー" aria-hidden="true">
+<div class="drawer-head">
+<a href="index.html" class="drawer-home">Home</a>
+<button type="button" class="drawer-close" data-drawer-close aria-label="メニューを閉じる">×</button>
+</div>
+<nav class="drawer-nav">
+<a href="index.html">Home</a>
+<a href="concept.html">こだわり</a>
+<a href="menu.html">メニュー</a>
+<a href="news.html">お知らせ</a>
+<a href="access.html" aria-current="page">店舗情報</a>
+</nav>
+<span class="drawer-rule" aria-hidden="true"></span>
+<nav class="drawer-nav">
+<a href="https://instagram.com/komorebi_coffee">Instagram</a>
+<a href="/privacy-policy">プライバシーポリシー</a>
+</nav>
+<div class="drawer-foot">
+<span class="vlogo-mark" aria-hidden="true">木漏れ日珈琲</span>
+<p>© KOMOREBI COFFEE</p>
+</div>
+</aside>
+
+<script src="js/nav.js"></script>
 </body>
 </html>
