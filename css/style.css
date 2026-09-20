@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap");
+
+body {
+  margin: 0;
+  background: #FCFAF6;
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  color: #3A241B;
+}
+
+a {
+  color: #4A2C21;
+}
+
+a:hover {
+  color: #6B4234;
+}
+
+*:focus-visible {
+  outline: 2px solid #4A2C21;
+  outline-offset: 2px;
+}
+
+@keyframes komorebi-spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
