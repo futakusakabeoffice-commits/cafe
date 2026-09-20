@@ -453,7 +453,7 @@ a:hover {
 @media (min-width: 1024px) {
   .hero-a-grid {
     display: grid;
-    grid-template-columns: minmax(400px, 30%) 1fr minmax(160px, 13%);
+    grid-template-columns: minmax(240px, 22%) 1fr minmax(160px, 13%);
     padding-top: 40px;
   }
 }
@@ -463,14 +463,15 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  width: auto;
+  gap: 12px;
+  width: 96px;
 }
 
 @media (min-width: 1024px) {
   .hero-a-logo {
     padding-left: 48px;
     align-items: flex-start;
+    width: auto;
   }
 }
 
