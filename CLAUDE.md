@@ -17,28 +17,30 @@
 ## ディレクトリ構成
 
 ```
-index.html         トップページ（#top, #story, #menu, #roaster相当, #news, #access, フッターAを1ページに集約）
-concept.html        こだわり（下層ページ／ヒーローC＋理念テキスト＋焙煎士紹介）
-menu.html           メニュー一覧（js/menu.js でカテゴリーフィルター付きに動的レンダリング）
-menu-detail.html    商品情報・商品紹介（左右交互レイアウトの商品紹介セクション）
-news.html           お知らせ一覧（2カラムレイアウト）
-access.html         店舗情報・ご予約・アクセス
-css/style.css       サイト全体の共通CSS（トークン・リセット・レスポンシブ用コンポーネントクラス。詳細は下記「レスポンシブ実装」参照）
-js/menu.js          menu.html 用：カテゴリーフィルター（ALL/COFFEE/SWEETS/TAKE OUT）とアイテム一覧の描画
-js/nav.js           全ページ共通：ドロワーメニューの開閉制御（フォーカストラップ・Esc・オーバーレイクリックで閉じる・aria-expanded切り替え）
-images/             写真素材（hero, menu-*, gallery-01〜06, roaster, terrace）
-docs/DESIGN.md       デザインシステム仕様書（原本）
-docs/CONTENTS.md     トップページ構成・コンテンツ仕様書（原本）
+index.html          トップページ（#top, #story, #menu, #roaster, #media, #news, #access, フッターAを1ページに集約）
+concept.html         こだわり（下層ページ／ヒーローC＋理念テキスト＋焙煎士紹介）
+menu.html            メニュー一覧（js/menu.js でカテゴリーフィルター付きに動的レンダリング）
+menu-detail.html     商品情報・商品紹介（左右交互レイアウトの商品紹介セクション）
+news.html            お知らせ一覧（2カラムレイアウト）
+news/YYYY-MM-DD.html お知らせ個別記事（5件。news.html からの相対リンク、../ で親階層のcss/js/images/他ページを参照）
+access.html          店舗情報・ご予約・アクセス
+privacy-policy.html  プライバシーポリシー（フッターの「プライバシーポリシー」「プライバシー設定」リンク先）
+css/style.css        サイト全体の共通CSS（トークン・リセット・レスポンシブ用コンポーネントクラス。詳細は下記「レスポンシブ実装」参照）
+js/menu.js           menu.html 用：カテゴリーフィルター（ALL/COFFEE/SWEETS/TAKE OUT）とアイテム一覧の描画
+js/nav.js            全ページ共通：ドロワーメニューの開閉制御（フォーカストラップ・Esc・オーバーレイクリックで閉じる・aria-expanded切り替え）
+images/              写真素材（hero, menu-*, gallery-01〜06, roaster, terrace）
+docs/DESIGN.md        デザインシステム仕様書（原本）
+docs/CONTENTS.md      トップページ構成・コンテンツ仕様書（原本）
 ```
 
-トップページのグローバルナビは `docs/CONTENTS.md` では Home / こだわり / メニュー / 焙煎士 / お知らせ / 店舗情報 の6項目だが、実装の `index.html` では「焙煎士」「掲載メディア（#media）」への個別ナビ項目・セクションは実装されていない（ROASTER セクション自体はメニュー一覧の直後に存在するが、ナビリンクなし。#media セクションは未実装）。仕様と実装に差分がある箇所なので、コンテンツを追加・修正する際は実装（HTMLファイル）の現状を正としつつ、両ドキュメントとの整合も意識すること。
+`index.html` のグローバルナビ（デスクトップ縦並びナビ・ドロワー・フッターA）は `docs/CONTENTS.md` の6項目（Home / こだわり / メニュー / 焙煎士 / お知らせ / 店舗情報）と一致している。ROASTER セクションには `id="roaster"` を、Instagramギャラリーとお知らせの間には `docs/CONTENTS.md` 第8章の「掲載メディア」セクション（`id="media"`、カード2枚）を実装済み。掲載メディアの画像は実ファイルが存在しないため、Background Alt色のプレースホルダーブロックで代用している（実写真を用意した際は `<img>` に差し替える）。`docs/CONTENTS.md` のナビ一覧自体に「掲載メディア」は含まれていないため、ナビリンクは追加していない（本文中のスクロール遷移のみ）。
 
 ## 実装スタイル（重要）
 
 - **スタイリングは基本的にインラインの `style` 属性**で書かれている（色・字間・行間など、ブレイクポイントをまたいで変化しない装飾的な値）。**ただし、ブレイクポイントで値が変わる箇所（グリッド列数、flex-direction、固定要素の表示切り替え、paddingの大きなジャンプなど）は `css/style.css` 側のクラスに切り出し、そこにメディアクエリを書く**、というのが現在のルール。インラインstyleに`@media`は書けないため、レスポンシブ化が必要な性質のプロパティは必ずクラス経由にすること。新しい要素を追加する際もこの使い分けに従う。
 - **CSS変数（トークン）を `:root` に定義済み**（`css/style.css` 冒頭、`docs/DESIGN.md` 第2章に対応）。ただし置き換えはまだ全面的ではなく、既存のインラインstyleの大半は引き続き16進カラーコードを直接書いている（新規追加分のみ `var(--color-*)` を使用）。色を一括変更する場合は `:root` の変数値とインラインのハードコード箇所の両方を確認すること。
 - **連続的にスケールする値（見出しサイズ・写真の高さ・アーチの角丸半径・回転バッジ直径など）は `clamp()` を使ってインラインstyleのまま実装している。** ブレイクポイントごとの離散的な値ではなく、画面幅に応じて滑らかに変化する。これにより多くの箇所はクラス化やメディアクエリなしでレスポンシブになっている。
-- 各ページ末尾のフッターとページ上部の縦書きロゴ／パンくずリストは、下層ページ間でほぼ同じマークアップがページごとに複製されている（共通コンポーネント化・テンプレート化はされていない）。フッター内容を変更する場合は `concept.html` / `menu.html` / `menu-detail.html` / `news.html` / `access.html` の該当箇所を個別に修正する必要がある。
+- 各ページ末尾のフッターとページ上部の縦書きロゴ／パンくずリストは、下層ページ間でほぼ同じマークアップがページごとに複製されている（共通コンポーネント化・テンプレート化はされていない）。フッター内容を変更する場合は `concept.html` / `menu.html` / `menu-detail.html` / `news.html` / `access.html` / `privacy-policy.html` / `news/*.html`（5ファイル）の該当箇所を個別に修正する必要がある。`news/` 配下は1階層下にあるため、css・js・images・他ページへのリンクはすべて `../` を付けた相対パスになっている点に注意。
 - フォントは Google Fonts を `css/style.css` の `@import` 経由で読み込み（Shippori Mincho, Zen Kaku Gothic New, Cormorant Garamond, Jost）。`docs/DESIGN.md` 第3章のフォント使い分けルール（見出し=明朝体、本文/ナビ=ゴシック体、装飾的英数字=Cormorant Garamond、ラベル/UI英数字=Jost）に従っている。
 - アクセシビリティ対応（`aria-label`, `aria-current="page"`, `aria-hidden`, `alt` テキスト, `:focus-visible` アウトライン）は各ページで一定程度実装済み。新規要素を追加する際も同水準を維持すること。
 
@@ -52,7 +54,7 @@ docs/CONTENTS.md     トップページ構成・コンテンツ仕様書（原�
 
 - **`index.html`（ヒーローA・回転バッジあり）→ M1**：画面右上に固定の「Menu」テキストリンク（`.menu-link`）。回転バッジと同じ角に円形ボタンを重ねないための、DESIGN.md記載の例外パターン。
 - **その他5ページ（ヒーローC or ヒーローなし）→ M3**：左上に縦書きロゴ、右上に固定ピル（`.mobile-pill`。オンラインショップがないため「ご予約」「本日の営業時間」など文脈に応じた文言に差し替え）、右下に白い円形MENUボタン（`.mobile-menu-btn`、64px）。
-  - **例外**: `concept.html` / `access.html` はヒーローC自体に右上パンくずリストがあり、`.mobile-pill` を重ねると衝突するため、これら2ページでは `.mobile-pill` を置かず、円形MENUボタンのみを表示している（DESIGN.md のヒーローC・スマホ仕様に準拠）。
+  - **例外**: `concept.html` / `access.html` はヒーローC自体に右上パンくずリストがあり、`.mobile-pill` を重ねると衝突するため、これら2ページでは `.mobile-pill` を置かず、円形MENUボタンのみを表示している（DESIGN.md のヒーローC・スマホ仕様に準拠）。`privacy-policy.html` と `news/*.html`（お知らせ個別記事）も同様に、自然な短いCTA文言が無いため `.mobile-pill` を置かず円形MENUボタンのみとしている。新しくこのパターンのページを追加する場合、ふさわしい文言があれば `.mobile-pill` を足してよい。
 
 どちらのパターンも同じドロワーメニュー（`.drawer` / `.drawer-overlay`、各ページ末尾に配置）を開く。開閉制御は `js/nav.js`（フォーカストラップ・Escで閉じる・オーバーレイクリックで閉じる・`body.drawer-locked` でスクロールロック）。新しいページを追加する場合は、既存ページのドロワー用マークアップ（`data-drawer` / `data-drawer-open` / `data-drawer-close` / `data-drawer-overlay`）と `<script src="js/nav.js">` をそのままコピーすること。
 
