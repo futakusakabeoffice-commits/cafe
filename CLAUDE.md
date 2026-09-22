@@ -26,8 +26,8 @@ news/YYYY-MM-DD.html   お知らせ個別記事（5件。news.html からの相�
 access.html            店舗情報・ご予約・アクセス
 privacy-policy.html    プライバシーポリシー（フッターの「プライバシーポリシー」「プライバシー設定」リンク先）
 404.html               カスタム404ページ（noindex、トップへの導線あり）
-robots.txt             クローラー制御（Sitemap行はプレースホルダードメイン）
-sitemap.xml            全12ページのURLを列挙（プレースホルダードメイン）
+robots.txt             クローラー制御（Sitemap行は想定ドメイン komorebi-coffee.com。未取得のため公開前に要確認）
+sitemap.xml            全12ページのURLを列挙（想定ドメイン komorebi-coffee.com。未取得のため公開前に要確認）
 site.webmanifest       PWA向けマニフェスト（アイコン・テーマカラー定義）
 css/style.css          サイト全体の共通CSS（トークン・リセット・レスポンシブ用コンポーネントクラス。詳細は下記「レスポンシブ実装」参照）
 js/menu.js             menu.html 用：カテゴリーフィルター（ALL/COFFEE/SWEETS/TAKE OUT）とアイテム一覧の描画
@@ -126,7 +126,7 @@ docs/CONTENTS.md        トップページ構成・コンテンツ仕様書（�
 
 ### 追加素材・実インフラが無いと完了できない項目（未対応）
 
-- **canonical / og:url / og:image / robots.txt の Sitemap行 / sitemap.xml の URL**: 実際の公開ドメインが未確定のため、プレースホルダー `https://komorebi-coffee.example.com` を使用。**公開時にはこの文字列をリポジトリ全体で実ドメインに一括置換すること**（`grep -rl komorebi-coffee.example.com .` で対象ファイルを列挙できる）。
+- **canonical / og:url / og:image / robots.txt の Sitemap行 / sitemap.xml の URL**: `https://komorebi-coffee.com`（英字店名そのまま・ハイフン区切り、Instagramアカウント `@komorebi_coffee` とも一貫性のある無難な想定ドメイン）を暫定的に使用しているが、**実際にはまだ取得・所有していないドメイン**。公開前に実際のドメインを取得し、取得したドメインと異なる場合はリポジトリ全体で一括置換すること（`grep -rl komorebi-coffee.com .` で対象ファイルを列挙できる。`docs/CONTENTS.md` 内の `example.com`（掲載メディアのダミーリンク）は原本ドキュメントなので対象外）。
 - **シェア表示確認（X/Facebookデバッガー）**: 実際に公開されたURLが必要なため、デプロイ後に確認すること。
 - **Core Web Vitals実測 / Search Consoleでのフィールドデータ**: 実際のユーザートラフィックが必要なため、公開後の計測が必要（ローカルLighthouseでの実験値は上記の通り良好）。
 - **GA4 / Search Console / タグ確認 / コンバージョン計測**: 実際のGA4測定ID（`G-XXXXXXXXXX`）とGoogleアカウントでのサイト所有権確認が必要。導入時は `js/nav.js` と同様に全ページ共通の `<script>` を追加する形が既存構成と馴染みやすい。
