@@ -32,7 +32,8 @@
     drawer.classList.add("is-open");
     overlay.classList.add("is-open");
     overlay.hidden = false;
-    drawer.setAttribute("aria-hidden", "false");
+    drawer.removeAttribute("aria-hidden");
+    drawer.removeAttribute("inert");
     document.body.classList.add("drawer-locked");
     openBtns.forEach((b) => b.setAttribute("aria-expanded", "true"));
     const firstFocusable = drawer.querySelector("a, button");
@@ -44,6 +45,7 @@
     drawer.classList.remove("is-open");
     overlay.classList.remove("is-open");
     drawer.setAttribute("aria-hidden", "true");
+    drawer.setAttribute("inert", "");
     document.body.classList.remove("drawer-locked");
     openBtns.forEach((b) => b.setAttribute("aria-expanded", "false"));
     document.removeEventListener("keydown", onKeydown);

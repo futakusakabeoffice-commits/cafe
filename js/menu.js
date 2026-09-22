@@ -41,7 +41,7 @@
         </div>
         <div style="padding:16px;display:flex;flex-direction:column;gap:8px">
           <p style="margin:0;font-family:Jost,sans-serif;font-size:12px;letter-spacing:.18em;color:#6B5B51">${it.cat}</p>
-          <h3 style="margin:0;font-size:20px;font-weight:500;line-height:1.6;letter-spacing:.06em">${it.name}</h3>
+          <h2 style="margin:0;font-size:20px;font-weight:500;line-height:1.6;letter-spacing:.06em">${it.name}</h2>
           <p style="margin:0;font-size:15px;line-height:1.8;color:#3A241B">${it.desc}</p>
           <p style="margin:4px 0 0;font-size:18px;color:#6B5B51">${it.price}</p>
         </div>

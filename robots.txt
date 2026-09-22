@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://komorebi-coffee.example.com/sitemap.xml
